@@ -1,0 +1,64 @@
+* {
+    --color-black: black;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Prevents padding from breaking width calculations */
+}
+
+html, body {
+    width: 100%;
+    min-height: 100vh; /* Takes up the full screen height */
+    font-family: sans-serif; /* Cleaner look for text */
+}
+
+body {
+    /* If you plan to put content between header and footer, 
+       we add padding so the fixed headers don't block it */
+    padding-top: 40px;   /* Same as header height */
+    padding-bottom: 40px; /* Same as footer height */
+}
+
+header {
+    background-color: chocolate;
+    width: 100%;
+    height: 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    
+    /* Turning the header into a flexbox to center the text */
+    display: flex;
+    align-items: center; 
+    justify-content: space-between; /* This will push items to the edges if you have multiple items */
+    padding: 0 20px; /* Adds a little breathing room on the sides */
+}
+
+header p {
+    color: aliceblue;
+    cursor: pointer;
+    font-size: large;
+}
+
+footer {
+    background-color: chocolate;
+    width: 100%;
+    height: 40px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    
+    /* Turning the footer into a flexbox */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+footer p {
+    color: aliceblue;
+    font-size: large;
+}
+
+.botaoDeNavegacao {
+    display: block;
+}
