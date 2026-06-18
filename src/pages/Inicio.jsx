@@ -7,9 +7,9 @@ export default function Inicio() {
 
     const navigate = useNavigate();
 
-    function AbrirTelaInicio() {
-        navigate('/Inicio')
-    }
+    // function AbrirTelaInicio() {
+    //     navigate('/Inicio')
+    // }
 
     function AbrirTelaCardapio() {
         navigate('/Cardapio')
@@ -23,7 +23,7 @@ export default function Inicio() {
 
         <div>
 
-            <button className='botaoDeNavegacao' onClick={AbrirTelaInicio}>Inicio</button>
+            {/* <button className='botaoDeNavegacao' onClick={AbrirTelaInicio}>Inicio</button> */}
             <button className='botaoDeNavegacao' onClick={AbrirTelaCardapio}>Cardapio</button>
             <button className='botaoDeNavegacao' onClick={AbrirTelaContato}>Contato</button>
 
