@@ -1,64 +1,175 @@
+:root {
+    --color-black: #1a1a1a;
+    --color-primary: rgb(148, 72, 48);
+    --color-bg: #f9f9f9;
+    --color-card-bg: #ffffff;
+    --color-text: #333333;
+    --color-text-muted: #666666;
+    --color-success: #2e7d32;
+    --color-danger: #c62828;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+    --radius: 12px;
+}
+
 * {
-    --color-black: black;
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Prevents padding from breaking width calculations */
+    box-sizing: border-box;
 }
 
 html, body {
     width: 100%;
-    min-height: 100vh; /* Takes up the full screen height */
-    font-family: sans-serif; /* Cleaner look for text */
+    min-height: 100vh;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
 }
 
 body {
-    /* If you plan to put content between header and footer, 
-       we add padding so the fixed headers don't block it */
-    padding-top: 40px;   /* Same as header height */
-    padding-bottom: 40px; /* Same as footer height */
+    /* Corrigido: Ajustado para 60px para dar respiro aos 50px do header/footer */
+    padding-top: 70px;
+    padding-bottom: 70px;
 }
 
-header {
-    background-color: chocolate;
+/* Header & Footer */
+header, footer {
+    background-color: var(--color-primary);
     width: 100%;
-    height: 40px;
+    height: 50px;
     position: fixed;
-    top: 0;
     left: 0;
-    
-    /* Turning the header into a flexbox to center the text */
-    display: flex;
-    align-items: center; 
-    justify-content: space-between; /* This will push items to the edges if you have multiple items */
-    padding: 0 20px; /* Adds a little breathing room on the sides */
-}
-
-header p {
-    color: aliceblue;
-    cursor: pointer;
-    font-size: large;
-}
-
-footer {
-    background-color: chocolate;
-    width: 100%;
-    height: 40px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    
-    /* Turning the footer into a flexbox */
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 20px;
+    padding: 0 24px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
 }
 
-footer p {
-    color: aliceblue;
-    font-size: large;
+header { top: 0; }
+footer { bottom: 0; }
+
+header p, footer p {
+    color: #f8f9fa;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
 }
 
-.botaoDeNavegacao {
-    display: block;
+header p { cursor: pointer; }
+
+/* Layout do Cardápio */
+.cardapio-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.cardapio-titulo {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--color-primary);
+    font-size: 2rem;
+}
+
+/* Grid de Pratos */
+.grid-cardapio {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+/* Cartão do Prato Individual */
+.cartao-prato {
+    background-color: var(--color-card-bg);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.cartao-prato:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Container da Imagem */
+.imagem-container {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background-color: #eee;
+}
+
+.imagem-prato {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Conteúdo de Texto do Card */
+.conteudo-prato {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.categoria-prato {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    font-weight: 700;
+    margin-bottom: 4px;
+    letter-spacing: 1px;
+}
+
+.nome-prato {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-black);
+    margin-bottom: 8px;
+}
+
+.descricao-prato {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+    margin-bottom: 16px;
+    flex-grow: 1; /* Garante que o preço fique alinhado embaixo */
+}
+
+.footer-prato {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.preco-prato {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-black);
+}
+
+/* Status de Disponibilidade */
+.badge-status {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.badge-status.disponivel {
+    background-color: #e8f5e9;
+    color: var(--color-success);
+}
+
+.badge-status.indisponivel {
+    background-color: #ffebee;
+    color: var(--color-danger);
 }
